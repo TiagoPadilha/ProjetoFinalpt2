@@ -1,0 +1,54 @@
+{% extends 'votacoes/base.html' %}
+
+{% block content %}
+	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+	<div class="mdl-layout__header-row">
+	<span class="mdl-layout-title">Jogos</span>
+	<div class="mdl-layout-spacer"></div>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+    </header>
+    <div clas = "mlds-grid">
+
+    	<div >
+    		<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+    			<thead >
+    				<tr>
+    					<th class="mdl-data-table__cell--non-numeric" colspan=" 5">{{ escolha.Partida}}</th>
+    					
+    				</tr>
+    			</thead>
+    			<tbody>
+    				<tr>
+    					<td class="mdl-data-table__cell--non-numeric">{{ escolha.Equipe_da_casa}}</td>
+    					<td></td>
+    					<td class="mdl-data-table__cell--non-numeric">X</td>
+    					<td class="mdl-data-table__cell--non-numeric">{{ escolha.Equipe_de_fora}}</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td ><input type="button" id="boton" value="Votar" onClick="contar();"></td>
+    					<td><div id="contador">0</div></td>
+    					<td></td>
+    					<td><input type="button" id="boton1" value="Votar" onClick="contar2();"></td>
+    					<td><div id="contador1">0</div></td>
+    				</tr>
+    			</tbody>
+    		</table>
+
+
+    	</div> 
+    </div>
+    <script type="text/javascript"> // all javascript/jquery code start here
+	var contador = 0;
+	var contador1 = 0;
+	function contar(){
+
+	document.getElementById('contador').innerHTML = contador += 1;   
+	}
+	function contar2(){
+
+	document.getElementById('contador1').innerHTML = contador1 += 1;   
+	}
+</script>
+{% endblock %}
+

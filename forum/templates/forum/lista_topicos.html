@@ -1,0 +1,44 @@
+{% extends 'votacoes/base.html' %}
+
+{% block content %}
+  <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+  <div class="mdl-layout__header-row">
+  <span class="mdl-layout-title">Topicos
+  </span>
+  
+  <div class="mdl-layout-spacer">
+    <a href="{% url 'new_topico' %}" class="top-menu">
+      <button class="mdl-button mdl-js-button mdl-button-mini-fab mdl-button-black-colored">
+      <i class="material-icons">add</i>
+      </button>
+    </a>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+  </header>
+    <div class="mdl-grid">
+      
+    </div>
+    
+    {% for topico in topicos %}
+    <div class="mdl-grid">
+      <div class="mdl-cell--middle mdl-cell mdl-shadow--2dp">
+        <ul class="demo-list-item mdl-list">
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              <span><a href="{% url 'post' pk=topico.pk %}">{{ topico.titulo}}</a></span>
+            </span>
+          </li>
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              <span class="mdl-list__item-text-body">
+                {{ topico.descricao}}
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+
+    {% endfor %}
+{% endblock %}

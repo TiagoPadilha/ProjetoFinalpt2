@@ -1,0 +1,17 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+  <div class="mdl-layout__header-row">
+  <span class="mdl-layout-title">Novo Topico</span>
+  <div class="mdl-layout-spacer"></div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+  </header>
+  <div class="mdl-grid">
+  	<form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+  </div>
+    
+{% endblock %}

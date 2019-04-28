@@ -1,0 +1,47 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+    <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Postagens</span>
+
+        <div class="mdl-layout-spacer">
+            <a href="{% url 'new_post' %}" class="top-menu">
+              <button class="mdl-button mdl-js-button mdl-button-mini-fab mdl-button-black-colored">
+                  <i class="material-icons">add</i>
+              </button>
+            </a>
+        </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+</header>
+    {% for post in posts %}
+        <div class="mdl-grid">
+            <div class=" mdl-shadow--5dp">
+
+                <h3 class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">{{ post.titulo }}</h3>
+                    <div class="  mdl-shadow--5dp">
+                    {{ post.body}}
+                    </div>
+
+                <h5>Comentarios:</h5>
+                {% for coment in coments %}
+
+                    {% if coment.post == post %}
+                        <div class="mdl-shadow--5dp"><h6>{{ coment.autor }}</h6></div>
+                        <div class="mdl-shadow--5dp">{{ coment.body }}<br></div>
+                        
+                    {% endif %}
+
+                {% endfor %}
+                <br>
+                <a href="{% url 'new_coment' %}" class="top-menu">
+                  <button class="mdl-button mdl-js-button mdl-button-mini-fab mdl-button-black-colored">Adicionar comentário
+                      <i class="material-icons">add</i>
+                  </button>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

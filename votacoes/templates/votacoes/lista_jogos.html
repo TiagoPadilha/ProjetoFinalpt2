@@ -1,0 +1,37 @@
+{% extends 'votacoes/base.html' %}
+
+{% block content %}
+	<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+	<div class="mdl-layout__header-row">
+	<span class="mdl-layout-title">Jogos</span>
+	<div class="mdl-layout-spacer"></div>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+    </header>
+
+    {% for escolha in escolhas %}
+    <div class="centro">
+        <div class="mld-grid">
+        <div class="mdl-cell--middle mdl-cell mdl-shadow--2dp">
+            <ul class="demo-list-item mdl-list">
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                    <p><a href="{% url 'jogo' pk=escolha.pk %}">{{ escolha.Partida}}</a></p>
+                    
+                </span>            
+            </li>
+            <li class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                <p>{{ escolha.Equipe_da_casa}} X {{ escolha.Equipe_de_fora}}</p>
+                </span>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </div>
+    
+
+               
+        
+    {% endfor %}
+
+{% endblock %}
