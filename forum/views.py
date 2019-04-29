@@ -49,10 +49,8 @@ def new_coment(request):
     return render(request, 'forum/new_coment.html', {'form': form})
 
 def post(request, pk):
-	topico = Topico.objects.all().get()
-#	topico = Topico.objects.get(pk = pk)
-	post = Post.objects.all().get()
-#	post = Post.objects.get(pk = pk)
+	topico = Topico.objects.get(pk = pk)
+	post = Post.objects.get(pk = pk)
 
 
 	posts = Post.objects.filter(topico = topico)
