@@ -76,6 +76,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+<<<<<<< HEAD
 #DATABASES = {
  #   'default': {
   #      'ENGINE': 'django.db.backends.mysql',
@@ -95,6 +96,16 @@ BANCO DE DADOS  = {
         ' SENHA ' : ' <senha123> ' ,
         ' HOST ' : ' <tiagopadilhaa.mysql.pythonanywhere-services.com> ' ,
         ' PORT ' : ' ' ,
+=======
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '<tiagopadilha$campeonatobrasileiro>',
+        'USER': '<tiagopadilhaa>',
+        'PASSWORD': '<senha123>',
+        'HOST': '<tiagopadilhaa.mysql.pythonanywhere-services.com>',
+        'PORT': '',
+>>>>>>> b0c3d93e2ea67bb4a38ad10fb7ce551bdf925a8e
     }
 }
 
