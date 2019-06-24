@@ -1,6 +1,4 @@
-Django~=2.0.6
-<<<<<<< HEAD
-mysqclient
-=======
-mysqlclient
->>>>>>> b0c3d93e2ea67bb4a38ad10fb7ce551bdf925a8e
+Django==2.2.1
+django-crispy-forms==1.7.2
+mysqlclient==1.4.2.post1
+Pillow==6.0.0

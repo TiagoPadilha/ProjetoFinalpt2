@@ -1,16 +1,13 @@
-{% extends 'forum/base.html' %}
+{% extends 'votacoes/base.html' %}
+
+{% load crispy_forms_tags %}
 
 {% block content %}
-<header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
-  <div class="mdl-layout__header-row">
-  <span class="mdl-layout-title">Novo Topico</span>
-  <div class="mdl-layout-spacer"></div>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-  </header>
+  <h1>Novo Tópico</h1>
   <div class="mdl-grid">
   	<form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        {{ form|crispy }}
+        <button type="submit" class="save btn btn-info">Save</button>
     </form>
   </div>
     

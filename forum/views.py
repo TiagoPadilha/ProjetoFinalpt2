@@ -3,7 +3,10 @@ from django.shortcuts import redirect
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
 from .models import Topico, Post, Coment
-from .forms import FormTopico, FormPost, FormComent
+from .forms import FormTopico, FormPost, FormComent, ContatoForm
+from django.core.mail import send_mail, BadHeaderError
+
+
 
 def lista_topicos(request):
 	topico = Topico.objects.all()
@@ -30,7 +33,7 @@ def new_post(request):
             post.autor = request.user
             post.data_criacao = timezone.now()
             post.save()
-            return redirect('topicos')
+            return redirect('post')
     else:
         form = FormPost()
     return render(request, 'forum/new_post.html', {'form': form})
@@ -55,6 +58,7 @@ def post(request, pk):
 
 	posts = Post.objects.filter(topico = topico)
 
+
 	coments = Coment.objects.filter(post = post)
 
 	context = {
@@ -63,5 +67,29 @@ def post(request, pk):
 	}
 
 	return render(request, 'forum/post.html', context)
+
+def contato(request):
+    if request.method == 'GET':
+        email_form = ContatoForm()
+    else:
+        email_form = ContatoForm(request.POST)
+        if email_form.is_valid():
+            emissor = email_form.cleaned_data['emissor']
+            assunto = email_form.cleaned_data['assunto']
+            msg = email_form.cleaned_data['msg']
+            
+
+            try:
+                send_mail(assunto, msg, emissor, ['tiagopadilha007@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse("Erro")
+            return redirect('obg')
+            
+    return render(request, 'forum/contato.html', {'form': email_form})
+
+def obg(request):
+    return HttpResponse("<h2>Obrigado pela mensagem!!!</h2>")
+
+
 
 

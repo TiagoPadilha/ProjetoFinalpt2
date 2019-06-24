@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
+from django.contrib.messages import constants as messages
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,8 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'votacoes',
     'forum',
+    'accounts',
+    
+
+    
     
 ]
 
@@ -57,7 +64,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,38 +83,28 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-<<<<<<< HEAD
-#DATABASES = {
- #   'default': {
-  #      'ENGINE': 'django.db.backends.mysql',
-   #     'NAME': 'campeonatobrasileiro',
-    #    'USER': 'tiago',
-     #   'PASSWORD': 'senha123',
-      #  'HOST': 'localhost',
-       # 'PORT': '',
-#    }
-#}
 
-BANCO DE DADOS  = {
-    ' default ' : {
-        ' ENGINE ' : ' django.db.backends.mysql ' ,
-        ' NOME ' : ' <tiagopadilha $ campeonatobrasileiro> ' ,
-        ' USER ' : ' <tiagopadilhaa> ' ,
-        ' SENHA ' : ' <senha123> ' ,
-        ' HOST ' : ' <tiagopadilhaa.mysql.pythonanywhere-services.com> ' ,
-        ' PORT ' : ' ' ,
-=======
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '<tiagopadilha$campeonatobrasileiro>',
-        'USER': '<tiagopadilhaa>',
-        'PASSWORD': '<senha123>',
-        'HOST': '<tiagopadilhaa.mysql.pythonanywhere-services.com>',
+        'NAME': 'campeonatobrasileiro',
+        'USER': 'tiago',
+        'PASSWORD': 'senha123',
+        'HOST': 'localhost',
         'PORT': '',
->>>>>>> b0c3d93e2ea67bb4a38ad10fb7ce551bdf925a8e
     }
 }
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': '<tiagopadilha$campeonatobrasileiro>',
+#        'USER': '<tiagopadilhaa>',
+#        'PASSWORD': '<senha123>',
+#        'HOST': '<tiagopadilhaa.mysql.pythonanywhere-services.com>',
+#        'PORT': '',
+#    }
+#}
 
 
 
@@ -150,3 +147,24 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_HOST  =  "smtp.gmail.com" 
+EMAIL_HOST_USER  =  "tiagopadilha007@gmail.com " 
+EMAIL_HOST_PASSWORD =  'unwswtazaqucfubm' 
+EMAIL_PORT  =  587 
+EMAIL_USE_TLS  =  True
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}

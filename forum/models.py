@@ -36,4 +36,8 @@ class Coment(models.Model):
 	post = models.ForeignKey(Post, on_delete=models.CASCADE)
 	body = models.TextField(max_length=10000)
 
+    
+
+    
+
 	

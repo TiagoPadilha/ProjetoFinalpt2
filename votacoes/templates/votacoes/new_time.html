@@ -1,11 +1,11 @@
 {% extends 'votacoes/base.html' %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
-  <div>
-  	<form method="POST" class="post-form">
-        <h1>Novo Comentário</h1>
-        {% csrf_token %}
+  <h1>Novo Time</h1>
+  <div class="mdl-grid">
+    <form method="POST" class="post-form">{% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="save btn btn-info">Save</button>
     </form>
