@@ -6,12 +6,15 @@
         <li class="nav-item">
             <a class="nav-link disabled" href="/">Jogos</a>
         </li>
+        {% if user.is_superuser %} 
+
         <li class="nav-item">
             <a class="nav-link" href="{% url 'new_jogo' %}">novo jogo</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{% url 'new_time' %}">novo time</a>
         </li>
+        {% endif %}
     </ul>
     
     

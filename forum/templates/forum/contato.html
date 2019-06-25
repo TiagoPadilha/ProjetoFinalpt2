@@ -1,17 +1,36 @@
 {% extends 'votacoes/base.html' %}
-
 {% load crispy_forms_tags %}
 
-{% block conteudo %}
-	<div >
-		ola
-		<h1>ola
-		</h1>
+{% block content %}
+    <div >
     <form method="POST" class="post-form">
     	{% csrf_token %}
         {{form|crispy}}
-        <button type="submit" class="save btn btn-info">Save</button>
+        <button id="myBtn" type="submit" data-toggle="modal" data-target="#myModal" class="save btn btn-info">Save</button>
     </form>
+	    <div class="modal fade" id="myModal">
+	    	<div class="modal-dialog">
+		      <div class="modal-content">
+		      
+		        <!-- Modal Header -->
+		        <div class="modal-header">
+		          <h4 class="modal-title">Obrigado!</h4>
+		          <button type="button" class="close" data-dismiss="modal">×</button>
+		        </div>
+		        
+		        <!-- Modal body -->
+		        <div class="modal-body">
+		          Sua menagem foi enviada.
+		          Você sera redirecionado para a pagina inicial.
+		        </div>
+		        
+		        <!-- Modal footer -->
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		        </div>
+	        
+	      	</div>
+	    </div>
   	</div>
-    
+  	
 {% endblock %}

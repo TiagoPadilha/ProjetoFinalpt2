@@ -1,19 +1,30 @@
 {% extends 'votacoes/base.html' %}
 
 {% block content %}
-  <h1>Tópicos
-    <a href="{% url 'new_topico' %}">
-    <i class="material-icons">
-      add
-    </i>
-    </a>
-  </h1>
+  
+  {% if user.is_authenticated %}
+    <h1>
+      Tópicos
+      <a href="{% url 'new_topico' %}">
+        <i class="material-icons">
+        add
+        </i>
+      </a>
+    </h1>
+    
+    {% else %}
+    <h1>Tópicos</h1>
+  
+  {% endif %}
+  
+
+
     
   {% for topico in topicos %}
   <div class="">
     <ul class="list-group">
           <a href="{% url 'post' pk=topico.pk %}">
-            <li class="list-group-item">
+            <li class="list-group-item active">
               <dt>{{ topico.titulo}}</dt>
             </li>
           </a>
