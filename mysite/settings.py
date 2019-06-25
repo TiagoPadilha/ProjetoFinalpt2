@@ -84,27 +84,23 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'campeonatobrasileiro',
-        'USER': 'tiago',
-        'PASSWORD': 'senha123',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': '<tiagopadilha$campeonatobrasileiro>',
-#        'USER': '<tiagopadilhaa>',
-#        'PASSWORD': '<senha123>',
-#        'HOST': '<tiagopadilhaa.mysql.pythonanywhere-services.com>',
+#        'NAME': 'campeonatobrasileiro',
+#        'USER': 'tiago',
+#        'PASSWORD': 'senha123',
+#        'HOST': 'localhost',
 #        'PORT': '',
 #    }
 #}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 
@@ -150,7 +146,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
