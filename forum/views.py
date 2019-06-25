@@ -20,7 +20,7 @@ def new_topico(request):
             topico.autor = request.user
             topico.data_criacao = timezone.now()
             topico.save()
-            return redirect('topicos')
+            return redirect('new_post')
     else:
         form = FormTopico()
     return render(request, 'forum/new_topico.html', {'form': form})
@@ -33,7 +33,7 @@ def new_post(request):
             post.autor = request.user
             post.data_criacao = timezone.now()
             post.save()
-            return redirect('post')
+            return redirect('topicos')
     else:
         form = FormPost()
     return render(request, 'forum/new_post.html', {'form': form})

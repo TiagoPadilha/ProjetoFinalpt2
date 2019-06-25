@@ -1,37 +1,26 @@
 {% extends 'votacoes/base.html' %}
 
 {% block content %}
-	<h1>Jogos</h1>
-
-    	<div >
-    		<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
-    			<thead >
-    				<tr>
-    					<th class="mdl-data-table__cell--non-numeric" colspan=" 5">{{ escolha.Partida}}</th>
-    					
-    				</tr>
-    			</thead>
-    			<tbody>
-    				<tr>
-    					<td class="mdl-data-table__cell--non-numeric">{{ escolha.Equipe_da_casa}}</td>
-    					<td></td>
-    					<td class="mdl-data-table__cell--non-numeric">X</td>
-    					<td class="mdl-data-table__cell--non-numeric">{{ escolha.Equipe_de_fora}}</td>
-    					<td></td>
-    				</tr>
-    				<tr>
-    					<td ><input type="button" id="boton" value="Votar" onClick="contar();"></td>
-    					<td><div id="contador">0</div></td>
-    					<td></td>
-    					<td><input type="button" id="boton1" value="Votar" onClick="contar2();"></td>
-    					<td><div id="contador1">0</div></td>
-    				</tr>
-    			</tbody>
-    		</table>
-
-
-    	</div> 
-    </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-2"><span>{{ escolha.Partida}}</span></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-3">{{ escolha.Equipe_da_casa}}</div>
+            <div class="col-2">X</div>
+            <div class="col-3">{{ escolha.Equipe_de_fora}}</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-3"><div id="contador">0</div></div>
+            <div class="col-2"></div>
+            <div class="col-3"><div id="contador1">0</div></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-3"><input class="btn btn-info" type="button"  value="Votar" onClick="contar();"></div>
+            <div class="col-2"></div>
+            <div class="col-3"><input class="btn btn-info" type="button"  value="Votar" onClick="contar2();"></div>
+        </div>
+    <br>
     <script type="text/javascript"> // all javascript/jquery code start here
 	var contador = 0;
 	var contador1 = 0;
