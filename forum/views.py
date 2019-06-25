@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404
@@ -81,9 +82,11 @@ def contato(request):
 
             try:
                 send_mail(assunto, msg, emissor, ['tiagopadilha007@gmail.com'])
+                print("deu")
             except BadHeaderError:
+                print("nao deu")
                 return HttpResponse("Erro")
-            return redirect('obg')
+            return redirect('/')
             
     return render(request, 'forum/contato.html', {'form': email_form})
 

@@ -4,7 +4,7 @@ from crispy_forms.layout import Layout, Submit, Row, Column, Reset
 
 from .models import Topico
 from .models import Post
-from.models import Coment
+from .models import Coment
 
 class FormTopico(forms.ModelForm):
 
@@ -36,12 +36,12 @@ class ContatoForm(forms.Form):
         self.helper.form_method = 'post'
         self.helper.layout = Layout(
             Row(
-                Column('emissor', css_class='form-group col-md-6'),
-                Column('assunto', css_class='form-group col-md-6'),
+                Column('emissor', css_class='form-group col-md-3 mx-auto'),
+                Column('assunto', css_class='form-group col-md-3 mx-auto'),
                 css_class='form-row'
             ),
             'msg'
         )
-        self.helper.add_input(Submit('submit', 'Enviar'))
-        self.helper.add_input(Reset('reset', 'Limpar', css_class='btn-danger float-right'))
+        self.helper.add_input(Submit('submit', 'Enviar', css_class='btn-success'))
+        self.helper.add_input(Reset('reset', 'Limpar', css_class='btn-danger '))
 
